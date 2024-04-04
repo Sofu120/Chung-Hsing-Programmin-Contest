@@ -1,1 +1,1 @@
-# Chung-Hsing-Programmin-Contest
+# Chung-Hsing-Programming-Contest
