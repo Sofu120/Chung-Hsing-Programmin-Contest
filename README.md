@@ -1,17 +1,24 @@
-# 
+# Problem Mailbox
 
 ## Overview
 
-This project aims to develop a comprehensive intranet-based Customer Relationship Management (CRM) system designed to manage customer data and sales information efficiently. Our objective is to create a user-friendly platform that streamlines the processes of creating, reading, updating, and deleting (CRUD) customer and sales records. Additionally, this system is built with robust user authentication and access control mechanisms to ensure data security and integrity.
+Problem Mailbox is a web application developed to enhance communication between students and university officials. It aims to streamline the process of students reporting issues and concerns to the school administration. The application provides a user-friendly interface for students to submit their problems and track the progress of their cases. It also offers a centralized database for the school to manage and address the reported issues efficiently.
 
 ## Features
 
-- **CRUD Operations**: Enables comprehensive management of customer data and sales information, facilitating operations such as adding new customer records, updating existing information, reading/viewing data, and deleting records.
-- **User Authentication**: Implements secure login mechanisms to authenticate users, ensuring that only authorized personnel can access the system.
-- **Access Control**: Differentiates user permissions based on roles, regulating the scope of actions each user can perform within the system, thereby enhancing data security and operational efficiency.
+- **Problem Submission**: Students can easily submit their problems or concerns through a user-friendly web interface.
+- **History Search**: Students can search and view the history of previously reported problems to avoid duplicate submissions and track the progress of similar cases.
+- **Case Tracking**: Each submitted problem is assigned a unique case number, allowing students to track the progress and status of their reported issues.
 
 ## Technologies Used
 
-- **Front-end**: HTML, CSS, JavaScript
-- **Back-end**: Flask
-- **Database**: MySQL, SQLite
+- **Front-end**:
+  - HTML: Used for creating the structure and layout of web pages.
+  - CSS: Used for styling and visual enhancements of the user interface.
+  - JavaScript: Used for client-side interactivity and dynamic functionality.
+
+- **Back-end**:
+  - Flask: A Python web framework used for building the server-side logic and handling HTTP requests.
+
+- **Database**:
+  - Windows File System: The application utilizes the Windows file system for storing and managing the data.
