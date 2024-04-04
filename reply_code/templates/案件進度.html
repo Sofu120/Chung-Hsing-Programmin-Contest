@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant" dir="ltr">
+  <head>
+    <title>case</title>
+    <meta charset="UTF-8">    
+    <style>
+    	body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: white;
+      }
+      .topback {
+        position: absolute;
+        top: 0%;
+        left: 17.1%;
+        width: 1114.67px;//1672
+        height: 294.67px;//442
+      }
+      .leftback{
+        position: absolute;
+        top: 32.5%;
+        left: 17.1%;
+        width: 357.33px;//536
+        height: 402.67px;//914
+      }
+      .container {
+        width: 60%;
+        background-color: #f8f9fa;
+        padding: 20px;
+      }
+			.link {
+				position: absolute;
+      	top: 22.5%;
+      	left: 40%;
+      	width: 70%;
+    		margin-right: 10px; /* 可以根据需要调整间距 */
+    		white-space:nowrap;
+			}
+			.label-container {
+				position: absolute;
+        top: 35%;
+        left: 40%; /* leftback 的寬度加上一些間距 */
+        width: 60%;
+			}
+			.errmessage{
+				position: absolute;
+				top: 40%;
+        left: 40%;
+      }
+		</style>
+  </head>
+<body>
+
+
+{% if error %}
+<div class="container">
+	<div class="errmessage">
+		<p><span style="color: red;">查無結果，請再試一次</span></p>
+</div>
+{% endif %}
+
+<img class="topback" src="{{ url_for('static', filename='images/nchu_top_entry.png') }}" alt="Background">
+<img class="leftback" src="{{ url_for('static', filename='images/nchu_left_entry.png') }}" alt="Background">
+
+<div class="container">
+	<div class="link">
+  	<h1>興問題意見平台</h1>
+  	<a href="/">首頁</a>
+    <a href="/history">歷史意見箱</a>
+    <a href="/case">案件進度查詢</a>
+	</div>
+	<div class="label-container">
+		<form action="/submit_case" method="post">
+  		<label for="caseID">案件編號:</label><br>
+  		<input type="text" id="caseID" name="caseID"><br>
+  		<input type="submit" value="提交">
+		</form>
+	</div>
+
+<p id="result"></p>
+	
+</div>
+</html>

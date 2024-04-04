@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant" dir="ltr">
+  <head>
+    <title>case</title>
+    <meta charset="UTF-8">    
+    <style>
+    	body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: white;
+      }
+      .topback {
+        position: absolute;
+        top: 0%;
+        left: 17.1%;
+        width: 1114.67px;//1672
+        height: 294.67px;//442
+      }
+      .leftback{
+        position: absolute;
+        top: 32.5%;
+        left: 17.1%;
+        width: 357.33px;//536
+        height: 402.67px;//914
+      }
+      .container {
+        width: 60%;
+        background-color: #f8f9fa;
+        padding: 20px;
+      }
+			.link {
+				position: absolute;
+      	top: 22.5%;
+      	left: 40%;
+      	width: 70%;
+    		margin-right: 10px; /* 可以根据需要调整间距 */
+			}
+			table th, td {
+				height: 60px;
+  			border: 1.5px solid #5995D2;
+  			border-collapse: collapse;
+			}
+			table tbody {
+				position: absolute;
+				top: 150%;
+      	display: block;
+				height: 350px;
+      	width: 720px;
+        overflow-y:scroll;
+      }
+      table thead{
+      	position: absolute;
+      	top:90%;
+      	display: block;
+      }
+      .first{
+      	width: 45px;
+      }
+      .problem{
+      	width: 270px;
+      }
+      .department{
+      	width: 170px;
+      }
+      .date{
+      	width: 100px;
+      }
+      .rate{
+      	width: 80px;
+      }
+		</style>
+  </head>
+<body>
+
+<img class="topback" src="{{ url_for('static', filename='images/nchu_top_entry.png') }}" alt="Background">
+<img class="leftback" src="{{ url_for('static', filename='images/nchu_left_entry.png') }}" alt="Background">
+
+<div class="container">
+	<div class="link">
+  <h1>興問題意見平台</h1>
+  <a href="/">首頁</a>
+  <a href="/history">歷史意見箱</a>
+  <a href="/case">案件進度查詢</a><br><br>
+  
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="搜尋關鍵字..." style="position: absolute; left: 40%; top: 69%; height: 20px;">
+  
+<table>
+<thead>
+	<tr>
+		<th style="width: 45px"> </th>
+    <th class="header" data-field="faq_question" style="width: 270px">歷史問題</th>
+    <th class="header" data-field="dept_name" style="width: 170px">提供單位</th>
+    <th class "header" data-field="faq_update_datetime" style="width: 100px">日期▼</th>
+    <th class="header" data-field="read_cnt" style="width: 80px">點閱數</th>
+  </tr>
+</thead>
+</table>
+<table id="myTable">
+	<tbody>
+    	<tr>
+    		<th class="first">1</th>
+    		<th class="problem">如何申請加入學生會？</th>
+    		<th class="department">學生會辦公室</th>
+    		<th class="date">2023/10/20</th>
+    		<th class="rate">150</th>
+  		</tr>
+  		<tr>
+  		  <th>2</th>
+    		<th>如何選擇適合我的課程？</th>
+    		<th>學業諮詢中心</th>
+    		<th>2023/10/22</th>
+    		<th>200</th>
+  		</tr>
+  		<tr>
+  			<th>3</th>
+    		<th>學期中有哪些有趣的校園活動？</th>
+    		<th>學生活動部門</th>
+    		<th>2023/10/14</th>
+    		<th>100</th>
+  		</tr>
+  		<tr>
+  			<th>4</th>
+    		<th>圖書館的開放時間和借書規則是什麼？</th>
+    		<th>圖書館服務台</th>
+    		<th>2023/10/13</th>
+    		<th>300</th>
+  		</tr>
+  		<tr>
+  			<th>5</th>
+    		<th>如何處理學業壓力？</th>
+    		<th>心理諮詢中心</th>
+    		<th>2023/10/12</th>
+    		<th>250</th>
+  		</tr>
+  		<tr>
+  			<th>6</th>
+    		<th>宿舍報修流程是什麼？</th>
+    		<th>宿舍管理辦公室</th>
+    		<th>2023/9/23</th>
+    		<th>180</th>
+  		</tr>
+  	</tbody>
+</table>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, th, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    th = tr[i].getElementsByTagName("th")[1];
+    if (th) {
+      txtValue = th.textContent || th.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+	</div>
+</div>
+</html>

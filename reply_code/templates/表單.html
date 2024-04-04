@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant" dir="ltr">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: white;
+      }
+      .container {
+        width: 60%;
+        background-color: #f8f9fa;
+        padding: 20px;
+      }
+      .topback {
+        position: absolute;
+        top: 0%;
+        left: 17.1%;
+        width: 1114.67px;//1672
+        height: 294.67px;//442
+      }
+      .leftback{
+        position: absolute;
+        top: 32.5%;
+        left: 17.1%;
+        width: 357.33px;//536
+        height: 402.67px;//914
+      }
+      .label-container {
+        position: absolute;
+        top: 35%;
+        left: 29.5%; /* leftback 的寬度加上一些間距 */
+        width: 60%;
+        display: none; /*預設隱藏表單*/
+      }
+      .link{
+      	position: absolute;
+      	top: 22.5%;
+      	left: 40%;
+      	width: 70%;
+      	margin-right: 5%;
+      }
+      
+      .terms {
+      	position: absolute;
+      	top: 32.5%;
+      	left: 40%;
+      	width: 70%;
+      }
+      
+      #acceptTerms{
+      	position: absolute;
+      	top:100%;
+      	left:23%;
+      }
+      
+      input[id="name"],
+      input[id="subject"],
+      input[id="email"],
+      input[id="phone"],
+      input[id="message"],
+      label {
+  			display: block;
+  			margin: 0% 17.5%;
+			}
+      
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      textarea {
+        width: 35%; /* Set the width and height to make them longer */
+        margin: 0% 17.5%;
+        margin-bottom: 10px;
+      }
+      
+      input[type="submit"] {
+        display: block;
+        margin: 5% 31.5%;//上下、左右
+      }
+    </style>
+  </head>
+<body>
+
+<img class="topback" src="{{ url_for('static', filename='images/nchu_top_entry.png') }}" alt="Background">
+<img class="leftback" src="{{ url_for('static', filename='images/nchu_left_entry.png') }}" alt="Background">
+
+<div class="container">
+	<div class="link">
+  <h1>興問題意見平台</h1>
+  <a href="/">首頁</a>
+  <a href="/history">歷史意見箱</a>
+  <a href="/case">案件進度查詢</a>
+  
+	</div>
+	<div class="terms">
+  <h3>使用條款</h3>
+  <p>
+  <span style="color: red;">*常見請先查詢歷史意見箱有無相關提問以增加效率</span><br>
+	*提醒：若為本校緊急事項，請直接聯繫以下單位以利即時處理：<br>
+	&nbsp;&nbsp;學生安全輔導室／駐衛警察隊 (撥打04-22870885)<br>
+	&nbsp;&nbsp;本校緊急聯絡資訊 (https://www.nchu.edu.tw/user-detail/mid/9/id/248)<br>
+		<br>
+	一、 國立中興大學興問題意見箱系統處理流程<br>
+	(一) 填寫反映問題及聯絡資訊，並確認送出。<br>
+	(二) 系統自動產生案件編號，並email通知。<br>
+	(三) 分派案件給相關單位。<br>
+	(四) 權責單位處理。<br>
+	(五) email回覆處理結果，並可於系統填寫滿意度問卷。<br>
+	(六) 案件移轉至歷史意見箱，供所有人檢閱。<br>
+	<br>
+	二、 提醒事項<br>
+	(一) 若您遲未收到通知或回覆信，請查看本系統所發出之信函，是否被您的郵件系統當成垃圾廣告信件。<br>
+	(二) 請利用案件編號及您的郵件信箱查詢處理情形。<br>
+	(三) 為有效運用行政資源，迅速回覆反映意見，以下情況將不予處理：<br>
+	&nbsp;&nbsp;1. 與本校校務無關事項、惡意攻訐謾罵，及散播網路流傳不實訊息等；如信件內容涉及違反法律規定者，須自負法律責任。<br>
+	&nbsp;&nbsp;2. 依「行政院及所屬各機關處理人民陳情案件要點」第14點規定，人民陳情案件有下列情形之一者，得不予處理：<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;(1) 同一事由，經予適當處理，並已明確答復後，而仍一再陳情者。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;(2) 非陳情事項之主管機關，接獲陳情人以同一事由已分向各主管機關陳情者。<br>
+	(四) 在未經您同意的情況下，本系統不會任意將您的個人資料提供他人使用；<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;惟若涉及其他機關權責，基於法定職掌與專業分工，須視情況轉請該單位處理，<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您的個人基本資料(如姓名、聯絡電話、電子郵件地址等)，亦將隨同意見反映內容一併轉知。<br>
+  </p>
+  <input type="checkbox" id="acceptTerms" style="position: absolute; top :100.2%; left : 28.5%;">
+  <label for="acceptTerms" style="position: absolute; top :100%; left : 0%; color: red;">我已閱讀並接受條款</label>
+  </div>
+
+  <div class="label-container">
+    <form action="/submit_message" method="post">
+    	<label for="name"><span style="color: red;">*</span>姓名:</label>
+      <input type="text" id="name" name="name" required style="border:1.5px solid #347895;"><br>
+
+			<label for="email">您的信箱:</label>
+      <input type="email" id="email" name="email" style="border:1.5px solid #347895;"><br>
+			
+      <label for="phone">連絡電話:</label>
+      <input type="tel" id="phone" name="phone" style="border:1.5px solid #347895;"><br>
+      
+      <label for="subject"><span style="color: red;">*</span>信件主旨:</label>
+      <input type="text" id="subject" name="subject" required style="border:1.5px solid #347895;"><br>
+
+      <label for="message"><span style="color: red;">*</span>信件內容:</label>
+			<textarea id="message" name="message" required style="height: 200px; border: 1.5px solid #347895;"></textarea>
+
+      <input type="submit" value="提交" style="position: absolute; top: 93%; left: 2%;">
+    </form> 
+  </div>
+</div>
+
+<script>
+  // 當使用者接受條款時，顯示表單
+  document.getElementById('acceptTerms').addEventListener('change', function() {
+    if (this.checked) {
+      document.querySelector('.label-container').style.display = 'block';
+      document.querySelector('.terms').style.display = 'none'; // 隱藏 .terms
+    } else {
+      document.querySelector('.label-container').style.display = 'none';
+    }
+});
+
+</script>
+
+</body>
+</html>
